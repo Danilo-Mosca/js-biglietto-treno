@@ -21,10 +21,6 @@ Raccolta dati (mi creo le variabili necessarie calcolare il prezzo del biglietto
 "use strict";
 // Ripulisco la console
 console.clear();
-// Creo una variabile contenente i km, la inizializzo e la trasformo il float (Casting)
-const km = parseFloat(prompt("Quanti kilometri devi percorrere?"));
-// Creo una variabile contenente l'età del viaggiatore, la inizializzo e la trasformo in intero (Casting)
-const age = parseInt(prompt("Quanti anni hai?"));
 
 // Fase 3 
 // Mi creo le costanti per il prezzo al kilometro e la percentuale di sconto per gli under 18 e gli over 65
@@ -35,29 +31,43 @@ const discountOver = 40;
 let finalPrice;
 
 
-// Fase 4 
-// Controllo l'età del passeggero passeggero è applico l'eventuale sconto
+// Fase 4
 
-if (age < 18) {
-    finalPrice = km * priceKm;
-    finalPrice -= (finalPrice / 100) * discountUnder;
-    // Arrotondo il prezzo a due decimali dopo la virgola
-    finalPrice = finalPrice.toFixed(2);
-    //Provo se tutto funziona con un console log
-    // console.log(finalPrice);
-} else if (age > 65) {
-    finalPrice = km * priceKm;
-    finalPrice -= (finalPrice / 100) * discountOver;
-    // Arrotondo il prezzo a due decimali dopo la virgola
-    finalPrice = finalPrice.toFixed(2);
-    //Provo se tutto funziona con un console log
-    //console.log(finalPrice);
+// Creo una variabile contenente i km, la inizializzo e la trasformo il float (Casting)
+const km = parseFloat(prompt("Quanti kilometri devi percorrere?"));
+// Verifico se l'utente abbia inserito un numero, nel caso non l'abbia fatto stampo in output un messaffio
+if (Number.isNaN(km)) {
+    alert("Non hai inserito un valore valido");
+
 } else {
-    finalPrice = km * priceKm;
-    // Arrotondo il prezzo a due decimali dopo la virgola
-    finalPrice = finalPrice.toFixed(2);
-    //Provo se tutto funziona con un console log
-    // console.log(finalPrice);
+    // Creo una variabile contenente l'età del viaggiatore, la inizializzo e la trasformo in intero (Casting)
+    const age = parseInt(prompt("Quanti anni hai?"));
+    // Controllo se l'utente ha inserito un valore valido per l'età
+    if (Number.isNaN(age)) {
+        alert("Non hai inserito un'età corretta!");
+        // Controllo l'età del passeggero passeggero è applico l'eventuale sconto
+    } else if (age < 18) {
+        finalPrice = km * priceKm;
+        finalPrice -= (finalPrice / 100) * discountUnder;
+        // Arrotondo il prezzo a due decimali dopo la virgola
+        finalPrice = finalPrice.toFixed(2);
+        //Provo se tutto funziona con un console log
+        // console.log(finalPrice);
+    } else if (age > 65) {
+        finalPrice = km * priceKm;
+        finalPrice -= (finalPrice / 100) * discountOver;
+        // Arrotondo il prezzo a due decimali dopo la virgola
+        finalPrice = finalPrice.toFixed(2);
+        //Provo se tutto funziona con un console log
+        //console.log(finalPrice);
+    } else if ((age >= 18) && (age <= 65)) {
+        finalPrice = km * priceKm;
+        // Arrotondo il prezzo a due decimali dopo la virgola
+        finalPrice = finalPrice.toFixed(2);
+        //Provo se tutto funziona con un console log
+        // console.log(finalPrice);
+    }
+    alert("Il prezzo del biglietto è di € " + finalPrice);
 }
 
-alert("Il prezzo del biglietto è di € " + finalPrice);
+
