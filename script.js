@@ -1,5 +1,4 @@
 /*
-
 Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero.
 
 Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
@@ -12,6 +11,8 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 Fase 1 - Preparazione
 Obiettivo: output prezzo del viaggio (max 2 decimali)
 */
+
+
 
 /* Fase 2 
 Raccolta dati (mi creo le variabili necessarie calcolare il prezzo del biglietto secondo i km percorsi e l'età del viaggiatore) */
@@ -39,26 +40,24 @@ let finalPrice;
 
 if (age < 18) {
     finalPrice = km * priceKm;
-    finalPrice = (finalPrice - ((finalPrice / 100) * discountUnder));
+    finalPrice -= (finalPrice / 100) * discountUnder;
     // Arrotondo il prezzo a due decimali dopo la virgola
     finalPrice = finalPrice.toFixed(2);
     //Provo se tutto funziona con un console log
-    console.log(finalPrice);
-}
-else if (age > 65) {
+    // console.log(finalPrice);
+} else if (age > 65) {
     finalPrice = km * priceKm;
-    finalPrice = (finalPrice - ((finalPrice / 100) * discountOver));
+    finalPrice -= (finalPrice / 100) * discountOver;
     // Arrotondo il prezzo a due decimali dopo la virgola
     finalPrice = finalPrice.toFixed(2);
     //Provo se tutto funziona con un console log
-    console.log(finalPrice);
-}
-else {
+    //console.log(finalPrice);
+} else {
     finalPrice = km * priceKm;
     // Arrotondo il prezzo a due decimali dopo la virgola
     finalPrice = finalPrice.toFixed(2);
     //Provo se tutto funziona con un console log
-    console.log(finalPrice);
+    // console.log(finalPrice);
 }
 
 alert("Il prezzo del biglietto è di € " + finalPrice);
