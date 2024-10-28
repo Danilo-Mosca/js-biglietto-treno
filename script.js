@@ -34,3 +34,31 @@ const discountOver = 40;
 let finalPrice;
 
 
+// Fase 4 
+// Controllo l'età del passeggero passeggero è applico l'eventuale sconto
+
+if (age < 18) {
+    finalPrice = km * priceKm;
+    finalPrice = (finalPrice - ((finalPrice / 100) * discountUnder));
+    // Arrotondo il prezzo a due decimali dopo la virgola
+    finalPrice = finalPrice.toFixed(2);
+    //Provo se tutto funziona con un console log
+    console.log(finalPrice);
+}
+else if (age > 65) {
+    finalPrice = km * priceKm;
+    finalPrice = (finalPrice - ((finalPrice / 100) * discountOver));
+    // Arrotondo il prezzo a due decimali dopo la virgola
+    finalPrice = finalPrice.toFixed(2);
+    //Provo se tutto funziona con un console log
+    console.log(finalPrice);
+}
+else {
+    finalPrice = km * priceKm;
+    // Arrotondo il prezzo a due decimali dopo la virgola
+    finalPrice = finalPrice.toFixed(2);
+    //Provo se tutto funziona con un console log
+    console.log(finalPrice);
+}
+
+alert("Il prezzo del biglietto è di € " + finalPrice);
