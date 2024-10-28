@@ -35,7 +35,7 @@ let finalPrice;
 
 // Creo una variabile contenente i km, la inizializzo e la trasformo il float (Casting)
 const km = parseFloat(prompt("Quanti kilometri devi percorrere?"));
-// Verifico se l'utente abbia inserito un numero, nel caso non l'abbia fatto stampo in output un messaffio
+// Verifico se l'utente abbia inserito un numero, nel caso non l'abbia fatto stampo in output un messaggio
 if (Number.isNaN(km)) {
     alert("Non hai inserito un valore valido");
 
@@ -53,6 +53,8 @@ if (Number.isNaN(km)) {
         finalPrice = finalPrice.toFixed(2);
         //Provo se tutto funziona con un console log
         // console.log(finalPrice);
+        alert("Il prezzo del biglietto è di € " + finalPrice);
+
     } else if (age > 65) {
         finalPrice = km * priceKm;
         finalPrice -= (finalPrice / 100) * discountOver;
@@ -60,14 +62,14 @@ if (Number.isNaN(km)) {
         finalPrice = finalPrice.toFixed(2);
         //Provo se tutto funziona con un console log
         //console.log(finalPrice);
+        alert("Il prezzo del biglietto è di € " + finalPrice);
+
     } else if ((age >= 18) && (age <= 65)) {
         finalPrice = km * priceKm;
         // Arrotondo il prezzo a due decimali dopo la virgola
         finalPrice = finalPrice.toFixed(2);
         //Provo se tutto funziona con un console log
         // console.log(finalPrice);
+        alert("Il prezzo del biglietto è di € " + finalPrice);
     }
-    alert("Il prezzo del biglietto è di € " + finalPrice);
 }
-
-
