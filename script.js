@@ -24,3 +24,13 @@ console.clear();
 const km = parseFloat(prompt("Quanti kilometri devi percorrere?"));
 // Creo una variabile contenente l'età del viaggiatore, la inizializzo e la trasformo in intero (Casting)
 const age = parseInt(prompt("Quanti anni hai?"));
+
+// Fase 3 
+// Mi creo le costanti per il prezzo al kilometro e la percentuale di sconto per gli under 18 e gli over 65
+const priceKm = 0.21;
+const discountUnder = 20;
+const discountOver = 40;
+// Creo la variabile che conterrà il prezzo finale con o senza sconto applicato
+let finalPrice;
+
+
