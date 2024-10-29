@@ -33,43 +33,74 @@ let finalPrice;
 
 // Fase 4
 
-// Creo una variabile contenente i km, la inizializzo e la trasformo il float (Casting)
-const km = parseFloat(prompt("Quanti kilometri devi percorrere?"));
-// Verifico se l'utente abbia inserito un numero, nel caso non l'abbia fatto stampo in output un messaggio
-if (Number.isNaN(km)) {
-    alert("Non hai inserito un valore valido");
+// Creo una variabile contenente i km
+let km;
+// Mi creo una variabile booleana di controllo per i km
+let flagKm = true;
 
-} else {
-    // Creo una variabile contenente l'età del viaggiatore, la inizializzo e la trasformo in intero (Casting)
-    const age = parseInt(prompt("Quanti anni hai?"));
-    // Controllo se l'utente ha inserito un valore valido per l'età
-    if (Number.isNaN(age)) {
-        alert("Non hai inserito un'età corretta!");
-        // Controllo l'età del passeggero passeggero è applico l'eventuale sconto
-    } else if (age < 18) {
-        finalPrice = km * priceKm;
-        finalPrice -= (finalPrice / 100) * discountUnder;
-        // Arrotondo il prezzo a due decimali dopo la virgola
-        finalPrice = finalPrice.toFixed(2);
-        //Provo se tutto funziona con un console log
-        // console.log(finalPrice);
-        alert("Il prezzo del biglietto è di € " + finalPrice);
-
-    } else if (age > 65) {
-        finalPrice = km * priceKm;
-        finalPrice -= (finalPrice / 100) * discountOver;
-        // Arrotondo il prezzo a due decimali dopo la virgola
-        finalPrice = finalPrice.toFixed(2);
-        //Provo se tutto funziona con un console log
-        //console.log(finalPrice);
-        alert("Il prezzo del biglietto è di € " + finalPrice);
-
-    } else if ((age >= 18) && (age <= 65)) {
-        finalPrice = km * priceKm;
-        // Arrotondo il prezzo a due decimali dopo la virgola
-        finalPrice = finalPrice.toFixed(2);
-        //Provo se tutto funziona con un console log
-        // console.log(finalPrice);
-        alert("Il prezzo del biglietto è di € " + finalPrice);
+// Ciclo per controllo inserimento corretto dei km: 
+while (flagKm == true) {
+    // chiedo in input un valore da assegnare a km
+    km = prompt("Quanti kilometri devi percorrere?");
+    // Verifico se l'utente abbia inserito un numero, nel caso non l'abbia fatto stampo in output un messaggio
+    if (parseFloat(km) != km) {
+        alert("Non hai inserito un valore valido");
+    } else {
+        // Se l'utente ha inserito un valore valido allora la variabile flagKm diventa false così posso uscire dal ciclo
+        flagKm = false;
+        // Ora faccio il casting della variabile km perchè non ho più bisogno di controllare il valore inserito in input
+        km = parseFloat(km);
     }
+}
+
+// Creo una variabile contenente l'età
+let age;
+// Mi creo una variabile booleana di controllo per l'età
+let flagAge = true;
+
+// Ciclo per controllo inserimento corretto dell'età
+// Condizione: flagAge è equivalente a scrivere flagAge == true
+while (flagAge) {
+    // Creo una variabile contenente l'età del viaggiatore e chiedo in input con un prompt all'utente di inserire un valore
+    age = prompt("Quanti anni hai?");
+    // Controllo se l'utente ha inserito un valore valido per l'età, nel caso non l'abbia fatto stampo in output un messaggio
+    if (parseFloat(age) != age) {
+        alert("Non hai inserito un'età corretta!");
+    } else {
+        // Se l'utente ha inserito un valore valido allora la variabile flagAge diventa false così posso uscire dal ciclo
+        flagAge = false;
+        // Ora faccio il casting della variabile age perchè non ho più bisogno di controllare il valore inserito in input
+        age = parseInt(age);
+    }
+}
+
+// Controllo l'età per vedere se posso applicare lo sconto al prezzo del biglietto
+// Se è un minore applico uno sconto del 20%
+if (age < 18) {
+    finalPrice = km * priceKm;
+    finalPrice -= (finalPrice / 100) * discountUnder;
+    // Arrotondo il prezzo a due decimali dopo la virgola
+    finalPrice = finalPrice.toFixed(2);
+    //Provo se tutto funziona con un console log
+    // console.log(finalPrice);
+    alert("Il prezzo del biglietto è di € " + finalPrice);
+  
+    // Se è un over 65 applico uno sconto del 40%
+} else if (age > 65) {
+    finalPrice = km * priceKm;
+    finalPrice -= (finalPrice / 100) * discountOver;
+    // Arrotondo il prezzo a due decimali dopo la virgola
+    finalPrice = finalPrice.toFixed(2);
+    //Provo se tutto funziona con un console log
+    //console.log(finalPrice);
+    alert("Il prezzo del biglietto è di € " + finalPrice);
+
+  // Altrimenti non applico nessuno sconto
+} else if ((age >= 18) && (age <= 65)) {
+    finalPrice = km * priceKm;
+    // Arrotondo il prezzo a due decimali dopo la virgola
+    finalPrice = finalPrice.toFixed(2);
+    //Provo se tutto funziona con un console log
+    // console.log(finalPrice);
+    alert("Il prezzo del biglietto è di € " + finalPrice);
 }
